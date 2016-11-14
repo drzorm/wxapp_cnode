@@ -3,7 +3,7 @@ var request = require('../utils/util').request;
 var baseApiUrl = require('../config/api').baseApiUrl;
 var renderApiUrl = require('../config/api').renderApiUrl;
 
-var getTopics = function ({page = 1, limit = 20, tab = 'all'} = {}) {
+function getTopics({page = 1, limit = 20, tab = 'all'} = {}) {
   var promise = new Promise(function (resolve, reject) {
     request({
       data: {

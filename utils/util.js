@@ -9,7 +9,6 @@ function request(options) {
     }, options);
     var promise = new Promise(function (resolve, reject) {
         opts.success = function (res) {
-            // typeof options.success === 'function' && options.success(res);
             resolve(res);
         }
         opts.fail = function (res) {
@@ -18,7 +17,6 @@ function request(options) {
                 icon: 'warn',
                 duration: 10000
             });
-            // typeof options.fail === 'function' && options.fail(res);
             reject(res);
         }
         opts.complete = function () {
@@ -28,7 +26,7 @@ function request(options) {
         opts.showLoading && wx.showToast({
             title: '加载中',
             icon: 'loading',
-            duration: 10000
+            duration: 100000
         });
         wx.request(opts);
     });
