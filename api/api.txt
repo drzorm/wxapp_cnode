@@ -1,8 +1,12 @@
 以下 api 路径均以 https://cnodejs.org/api/v1 为前缀
 
+
+
+//////////////////////////////////////////////
+//////////////////////////////////////////////
 主题
 
-get /topics 主题首页
+--->get /topics 主题首页
 
 接收 get 参数
 
@@ -12,7 +16,10 @@ limit Number 每一页的主题数量
 mdrender String 当为 false 时，不渲染。默认为 true，渲染出现的所有 markdown 格式文本。
 示例：/api/v1/topics
 
-get /topic/:id 主题详情
+
+
+
+--->get /topic/:id 主题详情
 
 接收 get 参数
 
@@ -20,7 +27,10 @@ mdrender String 当为 false 时，不渲染。默认为 true，渲染出现的�
 accesstoken String 当需要知道一个主题是否被特定用户收藏时，才需要带此参数。会影响返回值中的 is_collect 值。
 示例：/api/v1/topic/5433d5e4e737cbe96dcef312
 
-post /topics 新建主题
+
+
+
+--->post /topics 新建主题
 
 接收 post 参数
 
@@ -31,7 +41,10 @@ content String 主体内容
 返回值示例
 
 {success: true, topic_id: '5433d5e4e737cbe96dcef312'}
-post /topics/update 编辑主题
+
+
+
+--->post /topics/update 编辑主题
 
 接收 post 参数
 
@@ -43,9 +56,14 @@ content String 主体内容
 返回值示例
 
 {success: true, topic_id: '5433d5e4e737cbe96dcef312'}
+
+
+
+//////////////////////////////////////////////
+//////////////////////////////////////////////
 主题收藏
 
-post /topic_collect/collect 收藏主题
+--->post /topic_collect/collect 收藏主题
 
 接收 post 参数
 
@@ -54,7 +72,10 @@ topic_id String 主题的id
 返回值示例
 
 {"success": true}
-post /topic_collect/de_collect 取消主题
+
+
+
+--->post /topic_collect/de_collect 取消主题
 
 接收 post 参数
 
@@ -63,13 +84,20 @@ topic_id String 主题的id
 返回值示例
 
 {success: true}
-get /topic_collect/:loginname 用户所收藏的主题
+
+
+
+--->get /topic_collect/:loginname 用户所收藏的主题
 
 示例：/api/v1/topic_collect/alsotang
 
+
+
+//////////////////////////////////////////////
+//////////////////////////////////////////////
 评论
 
-post /topic/:topic_id/replies 新建评论
+--->post /topic/:topic_id/replies 新建评论
 
 接收 post 参数
 
@@ -79,7 +107,10 @@ reply_id String 如果这个评论是对另一个评论的回复，请务必带�
 返回值示例
 
 {success: true, reply_id: '5433d5e4e737cbe96dcef312'}
-post /reply/:reply_id/ups 为评论点赞
+
+
+
+--->post /reply/:reply_id/ups 为评论点赞
 
 接受 post 参数
 
@@ -89,13 +120,22 @@ accesstoken String
 返回值示例
 
 {"success": true, "action": "down"}
+
+
+
+
+//////////////////////////////////////////////
+//////////////////////////////////////////////
 用户
 
-get /user/:loginname 用户详情
+--->get /user/:loginname 用户详情
 
 示例：/api/v1/user/alsotang
 
-post /accesstoken 验证 accessToken 的正确性
+
+
+
+--->post /accesstoken 验证 accessToken 的正确性
 
 接收 post 参数
 
@@ -105,9 +145,14 @@ accesstoken String 用户的 accessToken
 返回值示例
 
 {success: true, loginname: req.user.loginname}
+
+
+
+//////////////////////////////////////////////
+//////////////////////////////////////////////
 消息通知
 
-get /message/count 获取未读消息数
+--->get /message/count 获取未读消息数
 
 接收 get 参数
 
@@ -115,7 +160,10 @@ accesstoken String
 返回值示例
 
 { data: 3 }
-get /messages 获取已读和未读消息
+
+
+
+--->get /messages 获取已读和未读消息
 
 接收 get 参数
 
@@ -151,7 +199,10 @@ mdrender String 当为 false 时，不渲染。默认为 true，渲染出现的�
     ]
   }
 }
-post /message/mark_all 标记全部已读
+
+
+
+--->post /message/mark_all 标记全部已读
 
 接收 post 参数
 
