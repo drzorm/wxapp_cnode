@@ -1,4 +1,3 @@
-
 var request = require('../utils/util').request;
 var baseApiUrl = require('../config/api').baseApiUrl;
 var renderApiUrl = require('../config/api').renderApiUrl;
