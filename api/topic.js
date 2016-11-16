@@ -20,6 +20,7 @@ function getTopics({ page = 1, limit = 20, tab = 'all', mdrender = false } = {})
         mdrender:mdrender,
       },
       url: renderApiUrl('/topics'),
+      showLoading: false,
     }).then(function(res) {
       resolve(res);
     }, function(res) {

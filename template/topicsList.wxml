@@ -8,7 +8,6 @@
         <navigator url="../topic/topic?id={{topic.id}}" hover-class="navigator-hover">
           <view class="item-content">
             <view class="item-media">
-              <text>{{index}}</text>
               <image mode="aspectFill" src="{{topic.author.avatar_url}}"></image>
             </view>
             <view class="item-inner">
