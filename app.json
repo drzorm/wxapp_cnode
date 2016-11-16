@@ -8,9 +8,9 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#3737",
+    "navigationBarBackgroundColor": "#34495e",
     "navigationBarTitleText": "CNode",
-    "navigationBarTextStyle": "#fff",
+    "navigationBarTextStyle": "#ebedef",
     "enablePullDownRefresh": true
   },
   "tabBar": {

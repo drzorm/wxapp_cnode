@@ -6,5 +6,4 @@
   </block>
   <view wx:else class="nodata"></view>
   <view hidden="{{loading}}" class='loading'>加载中...</view>
-  <!-- <button type="default" bindtap="fetchData" hover-class="other-button-hover">加载更多</button> -->
 </view>

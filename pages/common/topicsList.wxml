@@ -13,10 +13,13 @@
             <view class="item-inner">
               <view class="item-title">{{topic.title}}</view>
               <view class="item-title-row">
-                <text>{{topic.reply_count}}/{{topic.visit_count}}</text>
-                <text>{{topic.tab}}</text>
-                <text wx:if="{{topic.good}}">精</text>
-                <text wx:if="{{topic.top}}">顶</text>
+                <view>{{topic.reply_count}}/{{topic.visit_count}}</view>
+                <view>
+                  <text class="ui-pl20">{{topic.tab}}</text>
+                  <text wx:if="{{topic.good}}" class="ui-color-green">精</text>
+                  <text wx:if="{{topic.top}}" class="ui-color-red">顶</text>
+                </view>
+                <view>{{topic.author.loginname}}</view>
               </view>
             </view>
           </view>
