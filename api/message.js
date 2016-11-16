@@ -1,6 +1,5 @@
 var request = require('../utils/util').request;
-var baseApiUrl = require('../config/api').baseApiUrl;
-var renderApiUrl = require('../config/api').renderApiUrl;
+var cnodeApiURI = require('../config/api').cnodeApiURI;
 
 /**
  * [count 获取未读消息数]
@@ -14,7 +13,7 @@ function count(accesstoken) {
       data: {
         accesstoken: accesstoken
       },
-      url: renderApiUrl('/message/count'),
+      url: `${cnodeApiURI}/message/count`,
     }).then(function(res) {
       resolve(res);
     }, function(res) {
@@ -37,7 +36,7 @@ function messages(accesstoken) {
         accesstoken: accesstoken,
         mdrender: true
       },
-      url: renderApiUrl('/messages')
+      url: `${cnodeApiURI}/messages`,
     }).then(function(res) {
       resolve(res);
     }, function(res) {
@@ -59,7 +58,7 @@ function markAll(accesstoken) {
       data: {
         accesstoken: accesstoken
       },
-      url: renderApiUrl('/message/mark_all'),
+      url: `${cnodeApiURI}/message/mark_all`,
     }).then(function(res) {
       resolve(res);
     }, function(res) {

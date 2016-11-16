@@ -35,19 +35,19 @@ function wxParse(type, data, target) {
   var wxParseData = [];
   if (type == 'json') {
     var json = HtmlToJson.html2json(html);
-    console.log(JSON.stringify(json, ' ', ' '));
+    // console.log(JSON.stringify(json, ' ', ' '));
     wxParseData = json.child;
   } else if (type == 'html') {
     data = wxDiscode.strDiscode(data);
     var json = HtmlToJson.html2json(data);
-    console.log(JSON.stringify(json, ' ', ' '));
+    // console.log(JSON.stringify(json, ' ', ' '));
     wxParseData = json.child;
   } else if (type == 'md' || type == 'markdown') {
     var converter = new showdown.Converter();
     var html = converter.makeHtml(data);
     html = wxDiscode.strDiscode(html);
     var json = HtmlToJson.html2json(html);
-    console.log(JSON.stringify(json, ' ', ' '));
+    // console.log(JSON.stringify(json, ' ', ' '));
     wxParseData = json.child;
   }
   var wxParseImageObjArray = HtmlToJson.wxImageArray();
@@ -80,19 +80,19 @@ function wxMoreParse(bindData, type, data, target) {
   var wxParseData = [];
   if (type == 'json') {
     var json = HtmlToJson.html2json(html, bindData);
-    console.log(JSON.stringify(json, ' ', ' '));
+    // console.log(JSON.stringify(json, ' ', ' '));
     wxParseData = json.child;
   } else if (type == 'html') {
     data = wxDiscode.strDiscode(data);
     var json = HtmlToJson.html2json(data, bindData);
-    console.log(JSON.stringify(json, ' ', ' '));
+    // console.log(JSON.stringify(json, ' ', ' '));
     wxParseData = json.child;
   } else if (type == 'md' || type == 'markdown') {
     var converter = new showdown.Converter();
     var html = converter.makeHtml(data);
     html = wxDiscode.strDiscode(html);
     var json = HtmlToJson.html2json(html, bindData);
-    console.log(JSON.stringify(json, ' ', ' '));
+    // console.log(JSON.stringify(json, ' ', ' '));
     wxParseData = json.child;
   }
   var wxParseImageObjArray = HtmlToJson.wxImageArray();
@@ -163,12 +163,12 @@ function wxAutoImageCal(originalWidth, originalHeight) {
       windowWidth = res.windowWidth;
       windowHeight = res.windowHeight;
       //判断按照那种方式进行缩放
-      console.log("windowWidth" + windowWidth);
+      // console.log("windowWidth" + windowWidth);
       if (originalWidth > windowWidth) {//在图片width大于手机屏幕width时候
         autoWidth = windowWidth;
-        console.log("autoWidth" + autoWidth);
+        // console.log("autoWidth" + autoWidth);
         autoHeight = (autoWidth * originalHeight) / originalWidth;
-        console.log("autoHeight" + autoHeight);
+        // console.log("autoHeight" + autoHeight);
         results.imageWidth = autoWidth;
         results.imageheight = autoHeight;
       } else {//否则展示原来的数据
@@ -297,12 +297,12 @@ function wxAutoImageCal(originalWidth, originalHeight) {
       windowWidth = res.windowWidth;
       windowHeight = res.windowHeight;
       //判断按照那种方式进行缩放
-      console.log("windowWidth" + windowWidth);
+      // console.log("windowWidth" + windowWidth);
       if (originalWidth > windowWidth) {//在图片width大于手机屏幕width时候
         autoWidth = windowWidth;
-        console.log("autoWidth" + autoWidth);
+        // console.log("autoWidth" + autoWidth);
         autoHeight = (autoWidth * originalHeight) / originalWidth;
-        console.log("autoHeight" + autoHeight);
+        // console.log("autoHeight" + autoHeight);
         results.imageWidth = autoWidth;
         results.imageheight = autoHeight;
       } else {//否则展示原来的数据

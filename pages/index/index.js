@@ -4,7 +4,7 @@ var app = getApp();
 Page({
   data: {
     topics: [],
-    limit: 10,
+    limit: 20,
     loading: false
   },
   onLoad: function() {

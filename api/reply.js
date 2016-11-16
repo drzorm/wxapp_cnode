@@ -1,6 +1,5 @@
 var request = require('../utils/util').request;
-var baseApiUrl = require('../config/api').baseApiUrl;
-var renderApiUrl = require('../config/api').renderApiUrl;
+var cnodeApiURI = require('../config/api').cnodeApiURI;
 
 /**
  * [replies 新建评论]
@@ -19,7 +18,7 @@ function replies({ accesstoken, topic_id, content, reply_id } = {}) {
         reply_id: reply_id,
         content: content
       },
-      url: renderApiUrl('/topic/' + topic_id + '/replies'),
+      url: `${cnodeApiURI}/topic/${topic_id}/replies`,
     }).then(function(res) {
       resolve(res);
     }, function(res) {
@@ -42,7 +41,7 @@ function ups({ accesstoken, reply_id } = {}) {
       data: {
         accesstoken: accesstoken
       },
-      url: renderApiUrl('/reply/' + reply_id + '/ups'),
+      url: `${cnodeApiURI}/reply/${reply_id}/ups`,
     }).then(function(res) {
       resolve(res);
     }, function(res) {

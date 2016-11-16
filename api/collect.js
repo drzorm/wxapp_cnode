@@ -1,6 +1,5 @@
 var request = require('../utils/util').request;
-var baseApiUrl = require('../config/api').baseApiUrl;
-var renderApiUrl = require('../config/api').renderApiUrl;
+var cnodeApiURI = require('../config/api').cnodeApiURI;
 
 /**
  * [addTopic 收藏主题]
@@ -18,7 +17,7 @@ function collect({ accesstoken, topic_id } = {}) {
         tab: tab,
         content: content
       },
-      url: renderApiUrl('/topic_collect/collect'),
+      url: `${cnodeApiURI}/topic_collect/collect`,
     }).then(function(res) {
       resolve(res);
     }, function(res) {
@@ -44,7 +43,7 @@ function deCollect({ accesstoken, topic_id } = {}) {
         tab: tab,
         content: content
       },
-      url: renderApiUrl('/topic_collect/de_collect'),
+      url: `${cnodeApiURI}/topic_collect/de_collect`,
     }).then(function(res) {
       resolve(res);
     }, function(res) {
@@ -63,7 +62,7 @@ function userCollect(loginname) {
   var promise = new Promise(function(resolve, reject) {
     request({
       method: 'GET',
-      url: renderApiUrl('/topic_collect/' + loginname),
+      url: `${cnodeApiURI}/topic_collect/${loginname}`,
     }).then(function(res) {
       resolve(res);
     }, function(res) {

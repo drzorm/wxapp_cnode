@@ -1,8 +1,5 @@
-var baseApiUrl = 'https://cnodejs.org/api/v1';
-var renderApiUrl = function(url) {
-    return baseApiUrl + url;
-}
+var cnodeApiURI = 'https://cnodejs.org/api/v1';
+
 module.exports = {
-    baseApiUrl: baseApiUrl,
-    renderApiUrl: renderApiUrl
+  cnodeApiURI: cnodeApiURI
 }

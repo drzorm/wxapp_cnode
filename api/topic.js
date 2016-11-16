@@ -1,6 +1,5 @@
 var request = require('../utils/util').request;
-var baseApiUrl = require('../config/api').baseApiUrl;
-var renderApiUrl = require('../config/api').renderApiUrl;
+var cnodeApiURI = require('../config/api').cnodeApiURI;
 
 /**
  * [getTopics 主题首页]
@@ -17,9 +16,9 @@ function getTopics({ page = 1, limit = 20, tab = 'all', mdrender = false } = {})
         page: page,
         limit: limit,
         tab: tab,
-        mdrender:mdrender,
+        mdrender: mdrender,
       },
-      url: renderApiUrl('/topics'),
+      url: `${cnodeApiURI}/topics`,
       showLoading: false,
     }).then(function(res) {
       resolve(res);
@@ -35,11 +34,14 @@ function getTopics({ page = 1, limit = 20, tab = 'all', mdrender = false } = {})
  * @param  {[String]} id [description]
  * @return {[Promise]}    [description]
  */
-function getTopic(id) {
+function getTopic({ id = null, mdrender = false } = {}) {
   var promise = new Promise(function(resolve, reject) {
     request({
       method: 'GET',
-      url: renderApiUrl('/topic/' + id),
+      data: {
+        mdrender: mdrender
+      },
+      url: `${cnodeApiURI}/topic/${id}`,
     }).then(function(res) {
       resolve(res);
     }, function(res) {
@@ -67,7 +69,7 @@ function addTopics({ accesstoken, title, tab, content } = {}) {
         tab: tab,
         content: content
       },
-      url: renderApiUrl('/topics'),
+      url: `${cnodeApiURI}/topics`,
     }).then(function(res) {
       resolve(res);
     }, function(res) {
@@ -96,7 +98,7 @@ function updateTopics({ accesstoken, topic_id, title, tab, content } = {}) {
         tab: tab,
         content: content
       },
-      url: renderApiUrl('/topics'),
+      url: `${cnodeApiURI}/topics`,
     }).then(function(res) {
       resolve(res);
     }, function(res) {

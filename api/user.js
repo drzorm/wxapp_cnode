@@ -1,6 +1,5 @@
 var request = require('../utils/util').request;
-var baseApiUrl = require('../config/api').baseApiUrl;
-var renderApiUrl = require('../config/api').renderApiUrl;
+var cnodeApiURI = require('../config/api').cnodeApiURI;
 
 /**
  * [detail description]
@@ -11,7 +10,7 @@ function detail(loginname) {
   var promise = new Promise(function(resolve, reject) {
     request({
       method: 'GET',
-      url: renderApiUrl('/user/' + loginname),
+      url: `${cnodeApiURI}/user/${loginname}`,
     }).then(function(res) {
       resolve(res);
     }, function(res) {
@@ -33,7 +32,7 @@ function auth(accesstoken) {
       data: {
         accesstoken: accesstoken
       },
-      url: renderApiUrl('/accesstoken '),
+      url: `${cnodeApiURI}/accesstoken`,
     }).then(function(res) {
       resolve(res);
     }, function(res) {

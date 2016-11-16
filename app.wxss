@@ -17,7 +17,7 @@
 }
 
 
-/*topic*/
+/* topic */
 .topic-list .item-content {
   display: flex;
 }
@@ -25,3 +25,9 @@
   width: 100rpx;
   height: 100rpx;
 }
+
+/* loading */
+.loading {
+  visibility: visible;
+}
+
