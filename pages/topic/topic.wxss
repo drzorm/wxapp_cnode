@@ -30,7 +30,7 @@
   border-radius: 50%;
 }
 .topic-header .topic-title {
-
+  padding-right: 40rpx;
 }
 .topic-title .title {
 
