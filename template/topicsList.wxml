@@ -1,9 +1,9 @@
-<!--index.wxml-->
-<import src="../../template/topicsList"/>
-<view class="container">
-  <block wx:if="{{topics.length > 0}}">
-    <template is="topicsList" data="{{topics}}"/>
-    <!-- <view class="topic-list">
+<!--
+  topics: Array
+-->
+<template name="topicsList">
+  <scroll-view class="scroll-view_H" scroll-y="true">
+    <view class="topic-list">
       <block wx:for="{{topics}}" wx:key="id" wx:for-item="topic">
         <navigator url="../topic/topic?id={{topic.id}}" hover-class="navigator-hover">
           <view class="item-content">
@@ -23,8 +23,6 @@
           </view>
         </navigator>
       </block>
-    </view> -->
-  </block>
-  <view wx:else class="nodata"></view>
-  <button type="default" bindtap="fetchData" hover-class="other-button-hover">加载更多</button>
-</view>
+    </view>
+  </scroll-view>
+</template>

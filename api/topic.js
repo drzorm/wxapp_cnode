@@ -9,7 +9,7 @@ var renderApiUrl = require('../config/api').renderApiUrl;
  * @param  {String} options.tab   [栏目]
  * @return {[Object]}               [栏目数据]
  */
-function getTopics({ page = 1, limit = 20, tab = 'all' } = {}) {
+function getTopics({ page = 1, limit = 20, tab = 'all', mdrender = false } = {}) {
   var promise = new Promise(function(resolve, reject) {
     request({
       method: 'GET',
@@ -17,6 +17,7 @@ function getTopics({ page = 1, limit = 20, tab = 'all' } = {}) {
         page: page,
         limit: limit,
         tab: tab,
+        mdrender:mdrender,
       },
       url: renderApiUrl('/topics'),
     }).then(function(res) {

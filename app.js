@@ -1,10 +1,16 @@
 //app.js
 App({
   onLaunch: function () {
-    console.log('onLaunch');
+    this.globalData.accesstoken = wx.getStorageSync('__accesstoken__');
+  },
+  onShow: function () {
+    console.log('onShow');
+  },
+  onHide: function () {
+    console.log('onHide');
   },
   getUserInfo: function (cb) {
-    var that = this
+    var that = this;
     if (this.globalData.userInfo) {
       typeof cb == "function" && cb(this.globalData.userInfo)
     } else {
@@ -22,6 +28,7 @@ App({
     }
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    accesstoken: null
   }
 })
