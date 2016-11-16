@@ -58,14 +58,14 @@ Page({
         topics: topics,
         loading: false
       });
-      isRefresh && wx.stopPullDownRefresh;
+      isRefresh && wx.stopPullDownRefresh();
       console.log(self.data.topics);
 
     }, function(res) {
       self.setData({
         loading: false
       });
-      isRefresh && wx.stopPullDownRefresh;
+      isRefresh && wx.stopPullDownRefresh();
     });
   },
   //事件处理函数
