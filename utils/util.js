@@ -48,7 +48,7 @@ function request(options) {
  */
 function dateFormat(date, format) {
 
-    var date = new Date(date.replace(/-/g,'/'));
+    var date = new Date(date);
     var map = {
         "M": date.getMonth() + 1, //月份
         "d": date.getDate(), //日
