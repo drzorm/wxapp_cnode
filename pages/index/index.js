@@ -50,7 +50,7 @@ Page({
       page: page,
       limit: self.data.limit
     }).then(function(res) {
-
+      console.log(res);
       var data = res.data;
       var _d = data.data || [];
       if (data.success) {
