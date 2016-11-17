@@ -19,7 +19,7 @@
                   <text wx:if="{{topic.good}}" class="ui-color-green">精</text>
                   <text wx:if="{{topic.top}}" class="ui-color-red">顶</text>
                 </view>
-                <view>{{topic.author.loginname}}</view>
+                <view>{{topic.create_at}}</view>
               </view>
             </view>
           </view>

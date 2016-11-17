@@ -1,3 +1,8 @@
+/**
+ * [request 数据请求]
+ * @param  {[Object]} options [description]
+ * @return {[Promise]}         [description]
+ */
 function request(options) {
     var opts = Object.assign({
         method: 'GET',
@@ -35,25 +40,43 @@ function request(options) {
 
 }
 
-function formatTime(date) {
-    var year = date.getFullYear()
-    var month = date.getMonth() + 1
-    var day = date.getDate()
+/**
+ * [dateFormat 时间格式化]
+ * @param  {[String]} date   [description]
+ * @param  {[String]} format [description]
+ * @return {[String]}        [description]
+ */
+function dateFormat(date, format) {
 
-    var hour = date.getHours()
-    var minute = date.getMinutes()
-    var second = date.getSeconds()
-
-
-    return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+    var date = new Date(date);
+    var map = {
+        "M": date.getMonth() + 1, //月份
+        "d": date.getDate(), //日
+        "h": date.getHours(), //小时
+        "m": date.getMinutes(), //分
+        "s": date.getSeconds(), //秒
+        "q": Math.floor((date.getMonth() + 3) / 3), //季度
+        "S": date.getMilliseconds() //毫秒
+    };
+    format = format.replace(/([yMdhmsqS])+/g, function(all, t) {
+        var v = map[t];
+        if (v !== undefined) {
+            if (all.length > 1) {
+                v = '0' + v;
+                v = v.substr(v.length - 2);
+            }
+            return v;
+        } else if (t === 'y') {
+            return (date.getFullYear() + '').substr(4 - all.length);
+        }
+        return all;
+    });
+    return format;
 }
 
-function formatNumber(n) {
-    n = n.toString()
-    return n[1] ? n : '0' + n
-}
+
 
 module.exports = {
     request: request,
-    formatTime: formatTime
+    dateFormat: dateFormat
 }

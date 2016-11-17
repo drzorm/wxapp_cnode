@@ -1,4 +1,5 @@
 var api = require('../../api/api');
+var util = require('../../utils/util');
 var WxParse = require('../../wxParse/wxParse.js');
 var app = getApp();
 // app.globalData
@@ -8,7 +9,7 @@ Page({
     wxParseData: []
   },
   onLoad: function(options) {
-    if(typeof options.id === undefined) return;
+    if (typeof options.id === undefined) return;
     this.fetchData(options.id);
   },
   fetchData: function(id) {
@@ -20,9 +21,13 @@ Page({
     }).then(function(res) {
 
       var data = res.data;
-      data.success && self.setData({
-        topic: data.data,
-      });
+      var _d = data.data || {};
+      if (data.success) {
+        _d.create_at = util.dateFormat(_d.create_at, 'yyyy-MM-dd hh:mm:ss');
+        self.setData({
+          topic: _d,
+        });
+      }
 
       WxParse.wxParse('html', data.data.content, self);
 
