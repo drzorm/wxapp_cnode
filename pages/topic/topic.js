@@ -28,15 +28,12 @@ Page({
           topic: _d,
         });
       }
-
       WxParse.wxParse('html', data.data.content, self);
-
     }, function(res) {
 
     });
   },
   wxParseImgTap: function(e) {
-    var self = this;
-    WxParse.wxParseImgTap(e, self);
+    WxParse.wxParseImgTap(e, this);
   }
 })

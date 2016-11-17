@@ -1,6 +1,6 @@
 var api = require('../../api/api');
+var util = require('../../utils/util');
 var app = getApp();
-// app.globalData
 Page({
   data: {
     topics: [],
@@ -39,6 +39,9 @@ Page({
     this.fetchData();
 
   },
+  bindViewTap: function() {
+
+  },
   fetchData: function(isRefresh) {
     var self = this;
     if (self.data.loading) return;
@@ -54,14 +57,18 @@ Page({
     }).then(function(res) {
 
       var data = res.data;
-      topics = topics.concat(data.data)
-      data.success && self.setData({
-        topics: topics,
-        loading: false
-      });
+      var _d = data.data || [];
+      if (data.success) {
+        topics = topics.concat(_d.map(function(n) {
+          n.create_at = util.dateFormat(n.create_at, 'yyyy-MM-dd hh:mm');
+          return n;
+        }))
+        self.setData({
+          topics: topics,
+          loading: false
+        });
+      }
       isRefresh && wx.stopPullDownRefresh();
-      console.log(self.data.topics);
-
     }, function(res) {
       self.setData({
         loading: false
@@ -69,6 +76,4 @@ Page({
       isRefresh && wx.stopPullDownRefresh();
     });
   },
-  //事件处理函数
-  bindViewTap: function() {},
 })

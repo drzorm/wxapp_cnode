@@ -1,7 +1,6 @@
 var api = require('../../api/api');
 var util = require('../../utils/util');
 var app = getApp();
-// app.globalData
 Page({
   data: {
     topics: [],
@@ -47,6 +46,7 @@ Page({
     var topics = isRefresh ? [] : self.data.topics;
     var page = isRefresh ? 1 : Math.ceil(topics.length / self.data.limit) + 1;
     api.topic.getTopics({
+      tab: 'all',
       page: page,
       limit: self.data.limit
     }).then(function(res) {
@@ -64,8 +64,6 @@ Page({
         });
       }
       isRefresh && wx.stopPullDownRefresh();
-      console.log(self.data.topics);
-
     }, function(res) {
       self.setData({
         loading: false
