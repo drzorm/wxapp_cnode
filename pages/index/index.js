@@ -4,6 +4,11 @@ var app = getApp();
 Page({
   data: {
     topics: [],
+    topicType: {
+      share: '分享',
+      ask: '问答',
+      job: '招聘'
+    },
     limit: 20,
     loading: false
   },
@@ -55,6 +60,7 @@ Page({
       var _d = data.data || [];
       if (data.success) {
         topics = topics.concat(_d.map(function(n) {
+          n.tab = self.data.topicType[n.tab];
           n.create_at = util.dateFormat(n.create_at, 'yyyy-MM-dd hh:mm');
           return n;
         }))
